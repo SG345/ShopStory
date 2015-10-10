@@ -59,4 +59,12 @@ def user_login(request):
 
 @login_required
 def homepage(request):
-    return render(request, 'home.html', {})
+    shoplist = AddStory()
+
+    return render(request, 'home.html', {'shoplist': shoplist})
+
+
+def AddStory(request):
+    if request.method == 'POST':
+        story=request.POST.get('ShoppingHistory')
+    return render(request, 'ShoppingHistory.html', {'story': story})

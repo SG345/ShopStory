@@ -19,6 +19,8 @@ from django.contrib import admin
 urlpatterns = patterns('',
       ('^$', 'portal.views.homepage'),
       ('^home/$', 'portal.views.homepage'),
-      ('^portal/register/$','portal.views.register'), 
-      ('^portal/login/$', 'portal.views.user_login')
+      ('^register/$','portal.views.register'), 
+      ('^login/$', 'portal.views.user_login'),
+
+      ('^AddStory/$', 'portal.views.AddStory'),
 )

@@ -14,3 +14,11 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ('profile_pic',)
+
+class AddStory(forms.ModelForm):
+    
+    ShoppingHistory=forms.TextField()
+
+    class Meta:
+        model = User
+        fields=('ShoppingHistory')
