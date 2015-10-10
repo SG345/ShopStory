@@ -13,9 +13,11 @@
         {% if user.is_authenticated %}
 
         <p> WELCOME, thanks for logging in {{user.username}} </p>
-        <p> Your Shopping Stories: </p>
-        <p>{{story.ShoppingHistory}}</p>
+       <form id="user_form" method="post" action="/AddStory/" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="story" value="" size="5000" />
 
+        <input type="submit" name="submit" value="AddStory" />
         {% endif %}
     </body>
     

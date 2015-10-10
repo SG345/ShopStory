@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django import forms
 from portal import models
-from portal.forms import UserForm, UserProfileForm
+from portal.forms import UserProfileForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -12,33 +12,28 @@ def register(request):
 
     if request.method == 'POST':
         #grab info from raw information
-        user_form=UserForm(data=request.POST)
         profile_form=UserProfileForm(data=request.POST)
 
-        if user_form.is_valid() and profile_form.is_valid():
-            user=user_form.save()
+        if profile_form.is_valid():
+            user=profile_form.save(commit=False)
 
             #hash the password for security using the djangohash default method
             user.set_password(user.password)
-            user.save()
-
-            profile = profile_form.save(commit=False)
-            profile.user = user
+            
 
             if 'profile_pic' in request.FILES:
                 profile_pic = request.FILES['profile_pic']
-            profile.save()
+            user.save()
 
             regStatus = True
 
         else:
-            print user_form.errors, profile_form.errors
+            print profile_form.errors
     
     else:
-        user_form = UserForm()
         profile_form = UserProfileForm()
     
-    return render(request, 'register.html', {'user_form': user_form, 'profile_form': profile_form, 'registered': regStatus})
+    return render(request, 'register.html', {'profile_form': profile_form, 'registered': regStatus})
 
 def user_login(request):
 
@@ -59,12 +54,17 @@ def user_login(request):
 
 @login_required
 def homepage(request):
-    shoplist = AddStory()
+    
 
-    return render(request, 'home.html', {'shoplist': shoplist})
+    return render(request, 'home.html', {})
 
-
+@login_required
 def AddStory(request):
     if request.method == 'POST':
-        story=request.POST.get('ShoppingHistory')
-    return render(request, 'ShoppingHistory.html', {'story': story})
+        story = request.POST.get('ShoppingHistory')
+        request.user.ShoppingHistory = story
+        request.user.save()
+
+
+        return render(request, 'ShoppingHistory.html', {'story': request.user})
+    return render(request, 'ShoppingHistory.html', {})

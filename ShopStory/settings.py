@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+AUTH_USER_MODEL = 'portal.UserProfile'
 LOGIN_URL = '/login/'
 # Application definition
 
