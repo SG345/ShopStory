@@ -5,8 +5,31 @@
     </head>
 
     <body>
-        <h1> Registration form </h1>
 
+     <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+          
+<div class="navbar">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">Logo</a>
+        <ul>
+          <li> s         </li>
+          <li><a href="sass.html">Sass</a></li>
+          <li><a href="badges.html">Components</a></li>
+          <li class="active"><a href="collapsible.html">JavaScript</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+
+
+        <h1> Registration form </h1>
+   
         {% if registered %}
         <strong> Account has been registered successfully. Thanks! </strong>
         <a href="/home/"> Return to the homepage. </a> <br />
@@ -18,7 +41,7 @@
            
             {{ profile_form.as_p}}
 
-        <input type="submit" name="submit" value="Register" />
+        <button type="button" class="btn btn-default navbar-btn">Register</button>
     </form>
     {% endif %}
 </body>

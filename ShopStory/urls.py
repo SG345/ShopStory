@@ -21,6 +21,6 @@ urlpatterns = patterns('',
       ('^home/$', 'portal.views.homepage'),
       ('^register/$','portal.views.register'), 
       ('^login/$', 'portal.views.user_login'),
-
+      ('^navbar/$', 'portal.views.navbar'),
       ('^AddStory/$', 'portal.views.AddStory'),
 )
