@@ -22,5 +22,8 @@ urlpatterns = patterns('',
       ('^register/$','portal.views.register'), 
       ('^login/$', 'portal.views.user_login'),
       ('^navbar/$', 'portal.views.navbar'),
+      ('^mystories/$', 'portal.views.mystories'),
+      ('^friends/$', 'portal.views.friends'),
+      ('^feed/$', 'portal.views.feed'),
       ('^AddStory/$', 'portal.views.AddStory'),
 )
