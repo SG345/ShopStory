@@ -68,8 +68,3 @@ def AddStory(request):
 
         return render(request, 'ShoppingHistory.html', {'story': request.user})
     return render(request, 'ShoppingHistory.html', {})
-
-def navbar(request):
-    
-
-    return render(request, 'NAVBAR.html', {})
