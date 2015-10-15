@@ -53,8 +53,7 @@ def user_login(request):
         return render(request, 'login.html', {})
 
 @login_required
-def homepage(request):
-    
+def homepage(request):  
 
     return render(request, 'home.html', {})
 
@@ -64,7 +63,5 @@ def AddStory(request):
         story = request.POST.get('ShoppingHistory')
         request.user.ShoppingHistory = story
         request.user.save()
-
-
         return render(request, 'ShoppingHistory.html', {'story': request.user})
     return render(request, 'ShoppingHistory.html', {})
