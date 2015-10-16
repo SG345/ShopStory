@@ -9,7 +9,7 @@ class UserProfile(AbstractUser):
     StaffMember = models.BooleanField(default=False)
     ShoppingHistory = models.TextField(null=True)
     ShoppingWishList = models.TextField(null=True)
-    ItemsBought - models.ManyToManyField(Products)
+    ItemsBought = models.ManyToManyField(Products)
 
     def __unicode__(self):
         return self.username
