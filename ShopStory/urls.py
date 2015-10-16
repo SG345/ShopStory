@@ -25,5 +25,6 @@ urlpatterns = patterns('',
       ('^mystories/$', 'portal.views.mystories'),
       ('^friends/$', 'portal.views.friends'),
       ('^feed/$', 'portal.views.feed'),
-      ('^AddStory/$', 'portal.views.AddStory'),
+      ('^AddStory/$', 'portal.views.AddStory'),    
+      ('^AddProduct/$', 'portal.views.AddStory'),
 )

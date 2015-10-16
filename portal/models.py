@@ -1,6 +1,15 @@
 from django.db import models
 #from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractUser
+
+class Products(models.Model):
+    
+    product_title = models.TextField()
+    product_type = models.TextField()
+    product_link = models.TextField()
+    product_image = models.ImageField(upload_to='product_images',blank=True)
+    product_price = models.TextField(null=True)
+
 class UserProfile(AbstractUser):
     
     #user = models.OneToOneField(User)
@@ -14,10 +23,4 @@ class UserProfile(AbstractUser):
     def __unicode__(self):
         return self.username
 
-class Products(models.Model):
-    product_title = models.TextField()
-    product_type = models.TextField()
-    product_link = models.TextField()
-    product_image = models.ImageField(upload_to='product_images',blank=True)
-    product_price = models.TextField(null=True)
     
